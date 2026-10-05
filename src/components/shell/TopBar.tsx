@@ -67,7 +67,7 @@ function ProfileMenu({ user }: { user: User }) {
 }
 
 export function TopBar({ user, credits }: { user: User; credits: number }) {
-  return <header className="glass sticky top-0 z-40 border-b border-line">
+  return <header className="sticky top-0 z-40 border-b border-line bg-surface shadow-[0_1px_3px_rgba(16,24,40,0.05)]">
     <div className="flex h-16 items-center gap-3 px-4 sm:px-6 lg:px-8">
       <Link href="/dashboard" className="rounded-lg" aria-label="Agent Gray home"><Brand size={32} className="md:[&>[role=img]]:hidden" textClassName="text-xl" /></Link>
 

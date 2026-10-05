@@ -45,7 +45,7 @@
   --neutral-soft: #eef1f5;
   --neutral-ink: #566176;
 
-  --glass: rgba(255, 255, 255, 0.72);
+  --glass: rgba(255, 255, 255, 0.94);
   --overlay: rgba(21, 34, 56, 0.4);
   color-scheme: light;
 }
@@ -88,7 +88,7 @@
   --neutral-soft: #22304a;
   --neutral-ink: #b4bdcc;
 
-  --glass: rgba(21, 34, 56, 0.72);
+  --glass: rgba(21, 34, 56, 0.94);
   --overlay: rgba(4, 8, 16, 0.6);
   color-scheme: dark;
 }
