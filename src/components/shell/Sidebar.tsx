@@ -19,7 +19,7 @@ function RailLink({ href, label, icon: Icon, active }: { href: string; label: st
     <span className={clsx(
       "grid size-11 place-items-center rounded-xl border transition-all",
       active
-        ? "border-brand-500 bg-brand-600 text-white shadow-[0_6px_16px_rgba(49,94,234,0.28)]"
+        ? "border-transparent bg-linear-to-b from-[#3d69ef] to-[#2448be] text-white shadow-[0_8px_18px_-6px_rgba(49,94,234,0.6)]"
         : "border-line bg-surface text-nav group-hover:border-brand-200 group-hover:bg-brand-50 group-hover:text-brand-ink",
     )}>
       <Icon size={20} strokeWidth={1.9} aria-hidden="true" />

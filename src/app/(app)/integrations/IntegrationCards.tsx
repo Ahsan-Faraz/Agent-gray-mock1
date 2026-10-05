@@ -130,7 +130,7 @@ export function IntegrationCards({ initial, exports }: { initial: Integration[];
       {items.map((item) => {
         const connected = item.status === "Connected";
         const isSelected = selected === item.provider;
-        return <Card key={item.provider} className={clsx("flex flex-col p-5 transition sm:p-6", isSelected && "ring-2 ring-brand-500")}>
+        return <Card key={item.provider} className={clsx("lift flex flex-col p-5 sm:p-6", isSelected && "ring-2 ring-brand-500")}>
           <div className="flex items-start justify-between gap-3">
             <span className="grid size-11 shrink-0 place-items-center rounded-xl text-[15px] font-extrabold text-white" style={{ background: item.color }} aria-hidden="true">{item.initials}</span>
             <StatusBadge value={item.status} label={item.status} />

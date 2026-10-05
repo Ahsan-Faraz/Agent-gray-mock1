@@ -6,9 +6,9 @@ import { BRAND, humanize } from "@/lib/format";
 type Variant = "primary" | "outline" | "ghost" | "danger";
 type Size = "sm" | "md";
 
-const buttonBase = "inline-flex items-center justify-center gap-2 rounded-full font-semibold transition-colors disabled:cursor-not-allowed disabled:opacity-50 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-500";
+const buttonBase = "inline-flex items-center justify-center gap-2 rounded-xl font-semibold transition-all active:scale-[0.98] disabled:cursor-not-allowed disabled:opacity-50 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-500";
 const buttonVariant: Record<Variant, string> = {
-  primary: "bg-brand-600 text-white hover:bg-brand-700",
+  primary: "bg-linear-to-b from-[#3d69ef] to-[#2b55dd] text-white shadow-[0_1px_0_rgba(255,255,255,0.25)_inset,0_6px_16px_-6px_rgba(49,94,234,0.6)] hover:from-[#3460ea] hover:to-[#2448be]",
   outline: "border border-brand-500 text-brand-ink bg-surface hover:bg-brand-50",
   ghost: "border border-line-strong bg-surface text-ink hover:bg-nav-hover",
   danger: "border border-bad/40 bg-surface text-bad-ink hover:bg-bad-soft",
@@ -31,7 +31,7 @@ export function ButtonLink({ variant = "primary", size = "md", className, ...pro
 }
 
 export function Card({ className, ...props }: ComponentProps<"section">) {
-  return <section className={clsx("rounded-2xl border border-line bg-surface shadow-[0_1px_2px_rgba(16,24,40,0.04)]", className)} {...props} />;
+  return <section className={clsx("rounded-2xl border border-line bg-surface shadow-[var(--shadow-card)]", className)} {...props} />;
 }
 
 export function CardHeader({ title, description, action }: { title: string; description?: string; action?: ReactNode }) {
@@ -117,7 +117,7 @@ export function StatusBadge({ value, label }: { value: string | null | undefined
 export function Progress({ value, className }: { value: number; className?: string }) {
   const width = Math.max(0, Math.min(100, value));
   return <div className={clsx("h-2 overflow-hidden rounded-full bg-brand-100", className)} role="progressbar" aria-valuemin={0} aria-valuemax={100} aria-valuenow={width}>
-    <div className="h-full rounded-full bg-brand-500" style={{ width: `${width}%` }} />
+    <div className="h-full rounded-full bg-linear-to-r from-[#6b8ff6] to-brand-600 transition-[width] duration-700" style={{ width: `${width}%` }} />
   </div>;
 }
 
@@ -127,7 +127,7 @@ export function StatCard({ label, value, hint, icon }: { label: string; value: s
       <span className="text-[13px] font-medium text-muted">{label}</span>
       {icon && <span className="grid size-8 place-items-center rounded-lg bg-brand-50 text-brand-ink">{icon}</span>}
     </div>
-    <strong className="mt-2 block text-[28px] font-bold leading-tight tracking-tight text-navy tabular-nums">{value}</strong>
+    <strong className="mt-2 block text-[30px] font-bold leading-tight tracking-tight text-navy tabular-nums">{value}</strong>
     {hint && <span className="mt-1 block text-[13px] text-muted">{hint}</span>}
   </Card>;
 }

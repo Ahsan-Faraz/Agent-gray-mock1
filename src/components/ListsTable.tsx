@@ -1,5 +1,6 @@
 import { ChevronRight } from "lucide-react";
 import Link from "next/link";
+import { Ring } from "@/components/premium";
 import { Progress, StatusBadge, td, th } from "@/components/ui";
 import { dateTime, number, sourceLabel } from "@/lib/format";
 import type { ContactList } from "@/lib/types";
@@ -32,14 +33,18 @@ export function ListsTable({ lists }: { lists: ContactList[] }) {
 
     <div className="relative hidden overflow-x-auto md:block">
       <table className="w-full min-w-[820px] text-sm">
-        <thead><tr className="border-b border-line">
+        <thead><tr className="border-b border-line bg-canvas/60">
           <th className={th}>Name</th><th className={th}>Source</th><th className={th}>Created</th><th className={th}>Status</th><th className={th}>Contacts</th><th className={th}>New / rerun</th><th className={`${th} w-44`}>Progress</th><th className={th}><span className="sr-only">Open</span></th>
         </tr></thead>
         <tbody>
-          {lists.map((list) => <tr key={list.id} className="border-b border-line last:border-0 hover:bg-nav-hover">
+          {lists.map((list) => <tr key={list.id} className="group border-b border-line transition-colors last:border-0 hover:bg-brand-50/50">
             <td className={td}>
+              <div className="flex items-center gap-3">
+              <Ring value={list.progress_percent} size={38} />
+              <div className="min-w-0">
               <Link href={`/lists/${list.id}`} className="block font-semibold text-navy hover:text-brand-ink">{list.name || `List #${list.id}`}</Link>
               <small className="text-[13px] text-muted">{list.description || `List #${list.id}`}</small>
+            </div></div>
             </td>
             <td className={`${td} whitespace-nowrap`}>{sourceLabel(list.source_type)}</td>
             <td className={`${td} whitespace-nowrap text-muted`}>{dateTime(list.created_at)}</td>

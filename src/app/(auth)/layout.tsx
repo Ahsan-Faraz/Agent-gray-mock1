@@ -11,7 +11,8 @@ const proof = [
 
 export default function AuthLayout({ children }: LayoutProps<"/">) {
   return <div className="grid min-h-dvh lg:grid-cols-[minmax(0,1.05fr)_minmax(0,1fr)]">
-    <aside className="relative hidden overflow-hidden bg-auth text-white lg:flex lg:flex-col">
+    <aside className="relative isolate hidden overflow-hidden bg-linear-to-br from-[#1d3c9e] via-[#17253f] to-[#0f1a30] text-white lg:flex lg:flex-col">
+      <svg className="pointer-events-none absolute -right-40 top-1/2 -z-10 size-[720px] -translate-y-1/2 opacity-[0.16]" viewBox="0 0 400 400" aria-hidden="true">{[180, 150, 120, 90, 60].map((r) => <circle key={r} cx="200" cy="200" r={r} fill="none" stroke="white" strokeWidth="1" />)}<circle cx="200" cy="200" r="150" fill="none" stroke="#7be0b6" strokeWidth="3" strokeDasharray="420 1000" strokeLinecap="round" /><circle cx="200" cy="200" r="120" fill="none" stroke="#9cb0ec" strokeWidth="3" strokeDasharray="300 1000" strokeDashoffset="-200" strokeLinecap="round" /></svg>
       <div className="pointer-events-none absolute -right-40 -top-40 size-[520px] rounded-full bg-[#315eea]/35 blur-3xl" aria-hidden="true" />
       <div className="pointer-events-none absolute -bottom-48 -left-32 size-[460px] rounded-full bg-[#315eea]/15 blur-3xl" aria-hidden="true" />
       <div className="relative flex flex-1 flex-col px-12 py-10 xl:px-16">
