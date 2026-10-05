@@ -1,0 +1,161 @@
+@import "tailwindcss";
+
+/* Dark mode follows a `.dark` class on <html>, set before paint by the inline
+   script in app/layout.tsx (saved choice, else the OS preference). */
+@custom-variant dark (&:where(.dark, .dark *));
+
+/* Base palette is copied from callsure-frontend/src/index.css so both apps match.
+   "-ink" tones are darker shades of the same hues, used for text on the soft
+   tints so status labels pass WCAG AA (4.5:1). */
+:root {
+  --canvas: #f6f7f9;
+  --surface: #ffffff;
+  --surface-2: #f8f9fb;
+  --line: #e4e8ef;
+  --line-strong: #d9dee7;
+  --ink: #18243a;
+  --navy: #152238;
+  --muted: #667085;
+  --subtle: #8a94a6;
+
+  --brand-50: #edf1ff;
+  --brand-100: #dfe5ff;
+  --brand-200: #9cb0ec;
+  --brand-500: #315eea;
+  --brand-600: #315eea;
+  --brand-700: #2448be;
+  --brand-ink: #284ebf;
+
+  --nav: #5d687a;
+  --nav-hover: #f5f6f8;
+  --auth: #17253f;
+
+  --good: #178f63;
+  --good-soft: #eaf8f2;
+  --good-ink: #11704d;
+  --warn: #c57b19;
+  --warn-soft: #fff7e7;
+  --warn-ink: #8f560c;
+  --bad: #d34a4a;
+  --bad-soft: #fff1f1;
+  --bad-ink: #b13232;
+  --purple: #7656c7;
+  --purple-soft: #f5f0ff;
+  --purple-ink: #5f40ad;
+  --neutral-soft: #eef1f5;
+  --neutral-ink: #566176;
+
+  --glass: rgba(255, 255, 255, 0.72);
+  --overlay: rgba(21, 34, 56, 0.4);
+  color-scheme: light;
+}
+
+.dark {
+  --canvas: #0e1626;
+  --surface: #152238;
+  --surface-2: #1a2943;
+  --line: #26354f;
+  --line-strong: #34456a;
+  --ink: #e6ebf3;
+  --navy: #f2f5fa;
+  --muted: #a3adbf;
+  --subtle: #7d889c;
+
+  --brand-50: #1d2f57;
+  --brand-100: #233766;
+  --brand-200: #a9bcf8;
+  --brand-500: #5a80f2;
+  --brand-600: #315eea;
+  --brand-700: #2448be;
+  --brand-ink: #a9bcf8;
+
+  --nav: #a3adbf;
+  --nav-hover: #1d2b45;
+  --auth: #0b1220;
+
+  --good: #3cb889;
+  --good-soft: #123a2d;
+  --good-ink: #5fd3a4;
+  --warn: #e0a043;
+  --warn-soft: #3a2a12;
+  --warn-ink: #f0b45a;
+  --bad: #e06565;
+  --bad-soft: #3d1c1f;
+  --bad-ink: #f08a8a;
+  --purple: #9a7fe0;
+  --purple-soft: #2a2148;
+  --purple-ink: #bba6f5;
+  --neutral-soft: #22304a;
+  --neutral-ink: #b4bdcc;
+
+  --glass: rgba(21, 34, 56, 0.72);
+  --overlay: rgba(4, 8, 16, 0.6);
+  color-scheme: dark;
+}
+
+@theme inline {
+  --font-sans: var(--font-jakarta), ui-sans-serif, system-ui, sans-serif;
+
+  --color-canvas: var(--canvas);
+  --color-surface: var(--surface);
+  --color-surface-2: var(--surface-2);
+  --color-line: var(--line);
+  --color-line-strong: var(--line-strong);
+  --color-ink: var(--ink);
+  --color-navy: var(--navy);
+  --color-muted: var(--muted);
+  --color-subtle: var(--subtle);
+
+  --color-brand-50: var(--brand-50);
+  --color-brand-100: var(--brand-100);
+  --color-brand-200: var(--brand-200);
+  --color-brand-500: var(--brand-500);
+  --color-brand-600: var(--brand-600);
+  --color-brand-700: var(--brand-700);
+  --color-brand-ink: var(--brand-ink);
+
+  --color-nav: var(--nav);
+  --color-nav-hover: var(--nav-hover);
+  --color-auth: var(--auth);
+
+  --color-good: var(--good);
+  --color-good-soft: var(--good-soft);
+  --color-good-ink: var(--good-ink);
+  --color-warn: var(--warn);
+  --color-warn-soft: var(--warn-soft);
+  --color-warn-ink: var(--warn-ink);
+  --color-bad: var(--bad);
+  --color-bad-soft: var(--bad-soft);
+  --color-bad-ink: var(--bad-ink);
+  --color-purple: var(--purple);
+  --color-purple-soft: var(--purple-soft);
+  --color-purple-ink: var(--purple-ink);
+  --color-neutral-soft: var(--neutral-soft);
+  --color-neutral-ink: var(--neutral-ink);
+  --color-info-soft: var(--brand-50);
+  --color-info-ink: var(--brand-ink);
+  --color-overlay: var(--overlay);
+}
+
+body {
+  background: var(--canvas);
+  color: var(--ink);
+}
+
+/* One consistent, visible keyboard focus ring for every control. */
+:where(a, button, input, select, textarea, summary, [tabindex]):focus-visible {
+  outline: 3px solid color-mix(in srgb, var(--brand-500) 45%, transparent);
+  outline-offset: 2px;
+}
+
+/* Subtle glass: only for navigation, menus and modals, never behind data. */
+@utility glass {
+  background: var(--glass);
+  backdrop-filter: blur(14px) saturate(160%);
+  -webkit-backdrop-filter: blur(14px) saturate(160%);
+}
+
+/* Soft brand glow behind hero headings. */
+@utility glow {
+  background: radial-gradient(60% 120% at 50% 0%, color-mix(in srgb, var(--brand-500) 9%, transparent), transparent 70%);
+}
