@@ -23,7 +23,19 @@ const serif = Instrument_Serif({
 
 export const metadata: Metadata = {
   title: { default: "Agent Gray", template: "%s" },
-  description: "Know who to call before you call.",
+  description: "Increase your connect rate by 20-30%",
+  // Link previews (WhatsApp, Slack, LinkedIn, iMessage...) read these.
+  openGraph: {
+    title: "Agent Gray · Know Who To Call Before You Call",
+    description: "Increase your connect rate by 20-30%",
+    siteName: "Agent Gray",
+    type: "website",
+  },
+  twitter: {
+    card: "summary",
+    title: "Agent Gray · Know Who To Call Before You Call",
+    description: "Increase your connect rate by 20-30%",
+  },
 };
 
 // Runs before first paint so dark mode never flashes light. The landing page
