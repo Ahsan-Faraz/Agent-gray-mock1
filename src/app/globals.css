@@ -236,3 +236,72 @@ html { scroll-behavior: smooth; scroll-padding-top: 88px; }
 @keyframes ring-out { 0% { transform: scale(0.8); opacity: 0.55; } 100% { transform: scale(1.9); opacity: 0; } }
 @keyframes ticker { 0%, 20% { transform: translateY(0); } 25%, 45% { transform: translateY(-25%); } 50%, 70% { transform: translateY(-50%); } 75%, 95% { transform: translateY(-75%); } 100% { transform: translateY(0); } }
 @keyframes shimmer { from { background-position: 200% 0; } to { background-position: -200% 0; } }
+
+/* ───── Landing: white vs black ─────
+   The landing page ignores the app's light/dark toggle. White sections use
+   .lp-light, black sections use .lp-dark (plus .dark so `dark:` utilities
+   apply). Brand blue is kept only as a sparing accent. */
+.lp-light {
+  --canvas: #ffffff;
+  --surface: #ffffff;
+  --surface-2: #f6f6f7;
+  --line: #ececee;
+  --line-strong: #dcdce0;
+  --ink: #0a0a0b;
+  --navy: #0a0a0b;
+  --muted: #5d5d66;
+  --subtle: #8a8a93;
+  --brand-50: #f3f3f5;
+  --brand-100: #e8e8ec;
+  --brand-200: #d4d4da;
+  --brand-ink: #2448be;
+  --nav: #5d5d66;
+  --nav-hover: #f3f3f5;
+  --shadow-card: 0 1px 2px rgba(0, 0, 0, 0.04), 0 12px 32px -18px rgba(0, 0, 0, 0.18);
+  --shadow-pop: 0 2px 6px rgba(0, 0, 0, 0.06), 0 30px 60px -24px rgba(0, 0, 0, 0.3);
+  color: var(--ink);
+  color-scheme: light;
+}
+.lp-dark {
+  --canvas: #000000;
+  --surface: #0e0e10;
+  --surface-2: #151518;
+  --line: #222226;
+  --line-strong: #303036;
+  --ink: #f4f4f5;
+  --navy: #ffffff;
+  --muted: #a1a1aa;
+  --subtle: #71717a;
+  --brand-50: #17171b;
+  --brand-100: #222228;
+  --brand-200: #3a3a42;
+  --brand-500: #4f7bff;
+  --brand-ink: #8aa6ff;
+  --nav: #a1a1aa;
+  --nav-hover: #18181b;
+  --good: #3cb889;
+  --good-soft: #0f2a20;
+  --good-ink: #5fd3a4;
+  --warn: #e0a043;
+  --warn-soft: #2e2210;
+  --warn-ink: #f0b45a;
+  --bad: #e06565;
+  --bad-soft: #321718;
+  --bad-ink: #f08a8a;
+  --purple: #9a7fe0;
+  --purple-soft: #221b38;
+  --purple-ink: #bba6f5;
+  --neutral-soft: #1c1c20;
+  --neutral-ink: #b4b4bc;
+  --shadow-card: 0 1px 2px rgba(0, 0, 0, 0.5), 0 16px 40px -20px rgba(0, 0, 0, 0.9);
+  --shadow-pop: 0 2px 6px rgba(0, 0, 0, 0.5), 0 30px 60px -20px rgba(0, 0, 0, 0.95);
+  background-color: #000;
+  color: var(--ink);
+  color-scheme: dark;
+}
+
+/* Faint square grid used on black sections. */
+@utility lp-grid {
+  background-image: linear-gradient(rgba(255, 255, 255, 0.045) 1px, transparent 1px), linear-gradient(90deg, rgba(255, 255, 255, 0.045) 1px, transparent 1px);
+  background-size: 64px 64px;
+}

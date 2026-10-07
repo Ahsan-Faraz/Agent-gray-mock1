@@ -1,24 +1,25 @@
 "use client";
 
 import clsx from "clsx";
-import { ChevronDown } from "lucide-react";
+import { Plus } from "lucide-react";
 import { useState } from "react";
 
+// Hairline accordion: one open answer at a time, plus sign turns into a cross.
 export function Faq({ items }: { items: Array<{ q: string; a: string }> }) {
   const [open, setOpen] = useState<number | null>(0);
-  return <div className="grid gap-3">
+  return <div className="border-t border-black/10">
     {items.map((item, index) => {
       const on = open === index;
-      return <div key={item.q} className={clsx("rounded-2xl border bg-surface transition-all duration-300", on ? "border-brand-200 shadow-[var(--shadow-card)]" : "border-line")}>
+      return <div key={item.q} className="border-b border-black/10">
         <h3>
-          <button onClick={() => setOpen(on ? null : index)} aria-expanded={on} className="flex w-full items-center gap-4 px-5 py-4 text-left text-[15px] font-semibold text-navy sm:px-6 sm:py-5">
-            <span className="flex-1">{item.q}</span>
-            <ChevronDown size={18} className={clsx("shrink-0 text-muted transition-transform duration-300", on && "rotate-180 text-brand-ink")} aria-hidden="true" />
+          <button onClick={() => setOpen(on ? null : index)} aria-expanded={on} className="group flex w-full items-center gap-6 py-6 text-left text-lg font-medium tracking-tight text-black">
+            <span className="flex-1 transition-colors group-hover:text-black/70">{item.q}</span>
+            <span className={clsx("grid size-9 shrink-0 place-items-center rounded-full border transition-all duration-300", on ? "rotate-45 border-black bg-black text-white" : "border-black/15 text-black")}><Plus size={16} aria-hidden="true" /></span>
           </button>
         </h3>
         <div className={clsx("grid transition-[grid-template-rows] duration-300 ease-out", on ? "grid-rows-[1fr]" : "grid-rows-[0fr]")}>
           <div className="overflow-hidden">
-            <p className="px-5 pb-5 text-sm leading-relaxed text-muted sm:px-6">{item.a}</p>
+            <p className="max-w-2xl pb-6 leading-relaxed text-muted">{item.a}</p>
           </div>
         </div>
       </div>;

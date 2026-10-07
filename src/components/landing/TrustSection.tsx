@@ -26,14 +26,14 @@ export function TrustSection({ events, members }: { events: AuditEvent[]; member
   return <section className="mx-auto max-w-7xl px-4 py-20 sm:px-6 sm:py-28">
     <div className="grid gap-12 lg:grid-cols-[minmax(0,0.8fr)_minmax(0,1.2fr)] lg:gap-16">
       <Reveal className="lg:pt-6">
-        <p className="text-sm font-semibold text-brand-ink">Built for teams</p>
-        <h2 className="mt-4 text-4xl font-semibold tracking-[-0.035em] text-navy sm:text-[56px] sm:leading-[1.05]">Every result has a <span className="font-accent text-brand-ink">paper trail</span></h2>
+        <p className="inline-flex items-center gap-2 rounded-full border border-white/15 px-3 py-1 text-xs font-medium text-white/70"><span className="size-1.5 rounded-full bg-brand-500" />Built for teams</p>
+        <h2 className="mt-6 text-4xl font-medium leading-[1.05] tracking-[-0.04em] text-navy sm:text-6xl"><span className="text-white/45">Every result has a</span> paper trail</h2>
         <p className="mt-6 max-w-md text-lg leading-relaxed text-muted">Every list action, CRM sync and role change is recorded with who did it and when, so you can always explain a result.</p>
       </Reveal>
 
       <Reveal delay={120} className="relative">
         {/* Soft backdrop so the panels read as product screenshots */}
-        <div className="absolute -inset-4 -z-10 rounded-[36px] bg-linear-to-br from-brand-50 via-surface-2 to-transparent sm:-inset-6" aria-hidden="true" />
+        <div className="absolute -inset-4 -z-10 rounded-[36px] bg-[radial-gradient(closest-side,rgba(79,123,255,0.12),transparent)] sm:-inset-6" aria-hidden="true" />
         <div className="grid gap-4" aria-hidden="true" inert>
           <Panel title="Audit trail" description="Recent configuration, integration, and list actions for this workspace.">
             <table className="w-full text-[13px]">
@@ -61,8 +61,8 @@ export function TrustSection({ events, members }: { events: AuditEvent[]; member
     <ol className="mt-20 grid border-t border-line sm:grid-cols-2 lg:grid-cols-4">
       {PRINCIPLES.map((item, index) => <li key={item.title} className="border-b border-line py-8 sm:pr-6 sm:even:border-l sm:even:pl-6 lg:border-b-0 lg:border-l lg:pl-6 lg:first:border-l-0 lg:first:pl-0">
         <Reveal delay={index * 80}>
-          <span className="font-mono text-sm text-brand-ink">0{index + 1}</span>
-          <h3 className="mt-4 text-xl font-semibold tracking-tight text-navy">{item.title}</h3>
+          <span className="font-mono text-sm text-white/40">0{index + 1}</span>
+          <h3 className="mt-4 text-xl font-medium tracking-tight text-navy">{item.title}</h3>
           <p className="mt-2 text-[15px] leading-relaxed text-muted">{item.body}</p>
         </Reveal>
       </li>)}

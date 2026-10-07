@@ -155,21 +155,21 @@ export function HowItWorks({ contacts, list, people, cta }: { contacts: number; 
     <ol className="relative">
       {/* Progress rail */}
       <span className="absolute bottom-0 left-[23px] top-0 hidden w-[2px] rounded-full bg-line lg:block" aria-hidden="true">
-        <span className="block w-full rounded-full bg-linear-to-b from-[#6b8ff6] to-brand-600 transition-all duration-700" style={{ height: `${((active + 1) / STEPS.length) * 100}%` }} />
+        <span className="block w-full rounded-full bg-black transition-all duration-700" style={{ height: `${((active + 1) / STEPS.length) * 100}%` }} />
       </span>
       {STEPS.map((step, index) => {
         const on = index === active;
         return <li key={step.title} ref={(element) => { refs.current[index] = element; }} data-step={index} className="relative flex flex-col justify-center py-6 lg:min-h-[62vh] lg:py-0">
           <div className={clsx("flex gap-5 transition-all duration-500", on ? "opacity-100" : "lg:opacity-35")}>
-            <span className={clsx("relative z-10 grid size-12 shrink-0 place-items-center rounded-2xl text-lg font-bold transition-all duration-500", on ? "bg-linear-to-b from-[#3d69ef] to-[#2448be] text-white shadow-[0_12px_28px_-10px_rgba(49,94,234,0.75)]" : "border border-line-strong bg-surface text-muted")}>{index + 1}</span>
+            <span className={clsx("relative z-10 grid size-12 shrink-0 place-items-center rounded-2xl text-lg font-bold transition-all duration-500", on ? "bg-black text-white shadow-[0_12px_28px_-12px_rgba(0,0,0,0.6)]" : "border border-line-strong bg-surface text-muted")}>{index + 1}</span>
             <div>
-              <p className="text-xs font-bold uppercase tracking-[0.12em] text-brand-ink">Step {index + 1}</p>
-              <h3 className="mt-1.5 text-2xl font-semibold tracking-tight text-navy sm:text-3xl">{step.title}</h3>
+              <p className="text-sm font-medium text-subtle">Step {index + 1}</p>
+              <h3 className="mt-1.5 text-2xl font-medium tracking-tight text-navy sm:text-3xl">{step.title}</h3>
               <p className="mt-2 max-w-md text-[15px] leading-relaxed text-muted">{step.body}</p>
             </div>
           </div>
           {/* Phones and tablets: the visual sits under its step. */}
-          <div className="mt-6 grid place-items-center overflow-hidden rounded-3xl border border-line bg-linear-to-br from-brand-50 via-surface-2 to-surface px-4 py-10 lg:hidden">{visuals[index]}</div>
+          <div className="lp-dark dark lp-grid mt-6 grid place-items-center overflow-hidden rounded-3xl px-4 py-10 lg:hidden">{visuals[index]}</div>
         </li>;
       })}
     </ol>
@@ -178,12 +178,12 @@ export function HowItWorks({ contacts, list, people, cta }: { contacts: number; 
 
     {/* Desktop: one pinned stage that swaps visuals as the steps scroll. */}
     <div className="hidden lg:block">
-      <div className="sticky top-[calc(50vh-280px)] h-[560px] overflow-hidden rounded-[32px] border border-line bg-linear-to-br from-brand-50 via-surface-2 to-surface shadow-[var(--shadow-card)]">
-        <div className="pointer-events-none absolute inset-0 [background-image:radial-gradient(var(--line-strong)_1px,transparent_1px)] [background-size:22px_22px] [mask-image:radial-gradient(ellipse_at_center,black_40%,transparent_80%)]" aria-hidden="true" />
+      <div className="lp-dark dark sticky top-[calc(50vh-280px)] h-[560px] overflow-hidden rounded-[32px] shadow-[0_40px_80px_-40px_rgba(0,0,0,0.6)]">
+        <div className="lp-grid pointer-events-none absolute inset-0 [mask-image:radial-gradient(ellipse_at_center,black_35%,transparent_80%)]" aria-hidden="true" />
         <span className="drift pointer-events-none absolute -right-20 -top-24 size-80 rounded-full bg-brand-500/15 blur-[80px]" aria-hidden="true" />
-        <span className="drift pointer-events-none absolute -bottom-24 -left-16 size-72 rounded-full bg-[#7be0b6]/25 blur-[80px] [animation-delay:-7s]" aria-hidden="true" />
+        <span className="drift pointer-events-none absolute -bottom-24 -left-16 size-72 rounded-full bg-white/[0.06] blur-[80px] [animation-delay:-7s]" aria-hidden="true" />
         <div className="absolute left-6 top-5 flex gap-1.5" aria-hidden="true">
-          {STEPS.map((step, index) => <span key={step.title} className={clsx("h-1.5 rounded-full transition-all duration-500", index === active ? "w-8 bg-brand-500" : "w-1.5 bg-line-strong")} />)}
+          {STEPS.map((step, index) => <span key={step.title} className={clsx("h-1.5 rounded-full transition-all duration-500", index === active ? "w-8 bg-white" : "w-1.5 bg-white/25")} />)}
         </div>
         <div key={active} className="relative grid h-full place-items-center p-10" aria-hidden="true">{visuals[active]}</div>
       </div>

@@ -20,8 +20,9 @@ export const metadata: Metadata = {
   description: "Know who to call before you call.",
 };
 
-// Runs before first paint so dark mode never flashes light.
-const themeScript = `try{var t=localStorage.getItem("theme");if(t==="dark"||(!t&&matchMedia("(prefers-color-scheme: dark)").matches))document.documentElement.classList.add("dark")}catch(e){}`;
+// Runs before first paint so dark mode never flashes light. The landing page
+// (/) has its own fixed white-and-black design, so it is skipped there.
+const themeScript = `try{if(location.pathname==="/")throw 0;var t=localStorage.getItem("theme");if(t==="dark"||(!t&&matchMedia("(prefers-color-scheme: dark)").matches))document.documentElement.classList.add("dark")}catch(e){}`;
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
