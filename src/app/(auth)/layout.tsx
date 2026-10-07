@@ -16,7 +16,7 @@ export default function AuthLayout({ children }: LayoutProps<"/">) {
       <div className="pointer-events-none absolute -right-40 -top-40 size-[520px] rounded-full bg-[#315eea]/35 blur-3xl" aria-hidden="true" />
       <div className="pointer-events-none absolute -bottom-48 -left-32 size-[460px] rounded-full bg-[#315eea]/15 blur-3xl" aria-hidden="true" />
       <div className="relative flex flex-1 flex-col px-12 py-10 xl:px-16">
-        <Link href="/login" className="self-start rounded-lg" aria-label="Agent Gray home"><Brand size={48} onDark textClassName="text-xl" /></Link>
+        <Link href="/" className="self-start rounded-lg" aria-label="Agent Gray home"><Brand size={48} onDark textClassName="text-xl" /></Link>
         <div className="my-auto max-w-xl py-12">
           <p className="text-xs font-bold uppercase tracking-[0.12em] text-[#99ace0]">Contact verification workspace</p>
           <h1 className="mt-4 text-[42px] font-extrabold leading-[1.08] tracking-tight xl:text-[52px]">
@@ -36,7 +36,7 @@ export default function AuthLayout({ children }: LayoutProps<"/">) {
 
     <main className="glow relative flex min-w-0 flex-col px-5 py-5 sm:px-8">
       <div className="flex items-center justify-between">
-        <Link href="/login" className="rounded-lg lg:invisible" aria-label="Agent Gray home"><Brand size={38} /></Link>
+        <Link href="/" className="rounded-lg lg:invisible" aria-label="Agent Gray home"><Brand size={38} /></Link>
         <ThemeToggle />
       </div>
       <div className="flex flex-1 flex-col items-center justify-center py-8">
