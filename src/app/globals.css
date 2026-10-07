@@ -257,6 +257,21 @@ html { scroll-behavior: smooth; scroll-padding-top: 88px; }
   --brand-ink: #2448be;
   --nav: #5d5d66;
   --nav-hover: #f3f3f5;
+  --brand-500: #315eea;
+  --good: #178f63;
+  --good-soft: #eaf8f2;
+  --good-ink: #11704d;
+  --warn: #c57b19;
+  --warn-soft: #fff7e7;
+  --warn-ink: #8f560c;
+  --bad: #d34a4a;
+  --bad-soft: #fff1f1;
+  --bad-ink: #b13232;
+  --purple: #7656c7;
+  --purple-soft: #f5f0ff;
+  --purple-ink: #5f40ad;
+  --neutral-soft: #eef1f5;
+  --neutral-ink: #566176;
   --shadow-card: 0 1px 2px rgba(0, 0, 0, 0.04), 0 12px 32px -18px rgba(0, 0, 0, 0.18);
   --shadow-pop: 0 2px 6px rgba(0, 0, 0, 0.06), 0 30px 60px -24px rgba(0, 0, 0, 0.3);
   color: var(--ink);
@@ -304,4 +319,24 @@ html { scroll-behavior: smooth; scroll-padding-top: 88px; }
 @utility lp-grid {
   background-image: linear-gradient(rgba(255, 255, 255, 0.045) 1px, transparent 1px), linear-gradient(90deg, rgba(255, 255, 255, 0.045) 1px, transparent 1px);
   background-size: 64px 64px;
+}
+
+/* ───── Landing hero: eclipse ───── */
+@utility font-display { font-family: var(--font-display), var(--font-jakarta), ui-sans-serif, system-ui, sans-serif; }
+
+@keyframes word-blur { from { opacity: 0; filter: blur(14px); transform: translateY(18px); } to { opacity: 1; filter: blur(0); transform: none; } }
+@utility word-blur { animation: word-blur 1100ms cubic-bezier(0.2, 0.8, 0.2, 1) both; }
+
+@keyframes beam { 0%, 100% { opacity: 0.55; transform: translateX(-50%) rotate(var(--r)) scaleY(1); } 50% { opacity: 1; transform: translateX(-50%) rotate(var(--r)) scaleY(1.06); } }
+@keyframes twinkle { 0%, 100% { opacity: 0.15; } 50% { opacity: 0.9; } }
+@keyframes horizon-in { from { opacity: 0; transform: translateX(-50%) translateY(60px) scale(0.96); } to { opacity: 1; transform: translateX(-50%); } }
+@keyframes pill-sheen { from { background-position: 150% 0; } to { background-position: -50% 0; } }
+
+/* Film grain over black heroes */
+@utility grain {
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='160' height='160'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/></filter><rect width='100%' height='100%' filter='url(%23n)' opacity='0.55'/></svg>");
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .word-blur { animation: none; }
 }
